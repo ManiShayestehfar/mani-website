@@ -1,0 +1,15 @@
+---
+title: Something Happened to Us After COVID
+date: 2024-01-21
+tags: ["Heart Speech"]
+---
+# Something Happened to Us After COVID
+
+Something happened after COVID hit. Something beyond its superficial pain infliction on our lungs, or the sore throat that has lingered ever since… Something about humanity changed after COVID.
+
+Self-isolation for long periods of time is never recommended by anyone to anyone. That’s what drove Jack Torrance crazy… Staring across the empty bar until a bartender magically fades into existence… Being alone destroys us… Drives us crazy… We are social beings after all. I think lots of hatred that we see these days stems from this isolation. The world needs negotiation to survive. How can you negotiate with another human if you cannot shake and press their hands to feel that they indeed are also human? And then we didn’t talk to each other. We became less patient and more and more introspective towards our actions… Isolation kills you… The less we were communicating to each other, those who deemed to use us, those in power and the mask of humanity, stole our emotions… our thoughts… and our existence. We became enslaved in the masquerade of those who benefited from our loneliness… And benefit, they did…
+
+Isolation also gave us this widespread kingdom of social media. From the moment we open our eyes, till the moment it last blinks, we are digesting blue light. A few seconds of Dopamine hit and we feel as if we were never lonely… That 30-second-long stand-up comedy video sure does make you forget about asking your family how they are doing… Scroll and scroll and scroll… Maybe we hope to someday reach the end of this infinitude. Maybe we find it pleasing to be immersed in someone else’s life. But you know, not like in novels where you get to experience all of the bitter, the sweet, the sour, and the tasteless… no… I mean being immersed only for a few seconds, making a judgment about their identity, and then leaving… Life became senseless… It all became more and more difficult to feel pain. Whatever this dark maze of social media holds, brings us more and more to isolation. An isolation that kills. It was of course all a lie… Barely anything good ever comes out of this virtual social life… and if there is any good, it could probably be achieved some other way…
+
+Oh by the way, I am no different from anybody else… I am trapped in the same game too. And I don’t have a direct solution to it. I am not sure whether there is anything short-term anyways. But I am willing to try. I am willing to get out of isolation and give the world a chance. Maybe that is the point after all… Not to refuse isolation all together, but use it here and there to empower yourself… I don’t mean to be melancholic, nor bittersweet… In fact all of this means absolutely nothing to you or me. All I hope for, is to be able to talk… To communicate with some other being besides what I am. I am incapable of disagreeing with myself. I can’t hit myself in the back of the head and say “That decision is stupid, kid”. And I want that… People to remind me how stupid I can be.
+

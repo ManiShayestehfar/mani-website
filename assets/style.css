@@ -1,0 +1,902 @@
+/* ==========================================================================
+   1. Global theme variables
+   --------------------------------------------------------------------------
+   Change site-wide colours, fonts, spacing, and layout widths here.
+   ========================================================================== */
+
+:root {
+  /* Fonts */
+  --body-font: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  --heading-font: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  --mono-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+
+  /*
+    KaTeX controls most displayed maths internally.
+    Keep this as a safe fallback rather than forcing a non-maths font.
+  */
+  --math-font: KaTeX_Main, "Latin Modern Math", "STIX Two Math", serif;
+
+  /* Colours */
+  --text: #111;
+  --muted: #666;
+  --line: #d9d9d9;
+  --background: #fbfbfb;
+  --soft-background: #f7f7f7;
+  --link: #007d3d;
+  --visited: #219b83;
+
+  /* Layout */
+  --max-width: 840px;
+  --header-width: 1000px;
+}
+
+
+/* ==========================================================================
+   2. Base reset and document styles
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--background);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  background: var(--background);
+  font-family: var(--body-font);
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+main,
+footer {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+}
+
+main {
+  margin-top: 2rem;
+}
+
+footer {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+
+/* ==========================================================================
+   3. Header and navigation
+   --------------------------------------------------------------------------
+   Controls the Joel Gibson-style top navigation bar.
+   ========================================================================== */
+
+.site-header {
+  max-width: var(--header-width);
+  margin: 0 auto;
+  padding: 10px 28px 5px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid #aaa;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0;
+  font-family: var(--heading-font);
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1;
+}
+
+.site-nav a {
+  color: var(--link);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-nav a:hover {
+  text-decoration: underline;
+}
+
+.site-nav a:visited {
+  color: var(--link);
+}
+
+.site-nav a[aria-current="page"] {
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.nav-dot {
+  margin: 0 6px;
+  color: var(--text);
+  font-style: normal;
+}
+
+.site-name {
+  font-family: var(--heading-font);
+  font-size: 20px;
+  font-weight: normal;
+  font-style: italic;
+  color: var(--text);
+}
+
+
+/* ==========================================================================
+   4. Typography
+   ========================================================================== */
+
+h1,
+h2,
+h3 {
+  font-family: var(--heading-font);
+  line-height: 1.25;
+  font-weight: normal;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.15rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.35rem;
+}
+
+h3 {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+ul,
+ol {
+  padding-left: 1.4rem;
+}
+
+li {
+  margin-bottom: 0.45rem;
+}
+
+a {
+  color: var(--link);
+}
+
+a:visited {
+  color: var(--visited);
+}
+
+blockquote {
+  margin-left: 0;
+  padding-left: 1rem;
+  color: #333;
+  border-left: 3px solid var(--line);
+}
+
+.muted,
+.post-meta {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+
+/* ==========================================================================
+   5. Code blocks
+   ========================================================================== */
+
+pre,
+code {
+  font-family: var(--mono-font);
+  font-size: 0.92em;
+}
+
+code {
+  padding: 0.08rem 0.18rem;
+  background: var(--soft-background);
+  border-radius: 3px;
+}
+
+pre {
+  overflow-x: auto;
+  padding: 0.8rem;
+  background: var(--soft-background);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+pre code {
+  padding: 0;
+  background: transparent;
+}
+
+
+/* ==========================================================================
+   6. Tables
+   ========================================================================== */
+
+table {
+  width: 100%;
+  margin: 1rem 0;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.35rem 0.5rem;
+  vertical-align: top;
+  border: 1px solid var(--line);
+}
+
+
+/* ==========================================================================
+   Maths: inline maths and display maths
+   --------------------------------------------------------------------------
+   Inline maths comes from $ ... $
+   Display maths comes from $$ ... $$
+   ========================================================================== */
+
+/* Inline maths */
+.markdown-body .katex {
+  font-size: 1.07em;
+}
+
+/* Display maths from $$ ... $$ */
+.markdown-body .math-display {
+  width: 100%;
+  margin: 1.25rem 0;
+  text-align: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.markdown-body .math-display .katex-display {
+  margin: 0;
+  text-align: center;
+}
+
+.markdown-body .math-display .katex {
+  font-size: 1em;
+}
+
+/* Slightly reduce display maths on phones */
+@media (max-width: 700px) {
+  .markdown-body .katex {
+    font-size: 0.92em;
+  }
+
+  .markdown-body .katex-display > .katex {
+    font-size: 0.96em;
+  }
+}
+
+
+/* ==========================================================================
+   TikZ diagrams
+   --------------------------------------------------------------------------
+   TikZJax diagrams can be wider than the page, so allow horizontal scroll.
+   ========================================================================== */
+
+.tikz-wrapper {
+  max-width: 100%;
+  margin: 1.25rem 0;
+  padding: 0.5rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  text-align: center;
+}
+
+.tikz-wrapper svg {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
+   Quiver diagrams
+   --------------------------------------------------------------------------
+   For diagrams embedded from https://q.uiver.app.
+   ========================================================================== */
+
+.quiver-wrapper {
+  max-width: 100%;
+  margin: 1.5rem 0;
+  text-align: center;
+  overflow-x: auto;
+}
+
+.quiver-embed {
+  max-width: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+
+/* ==========================================================================
+   8. Images, figures, and captions
+   --------------------------------------------------------------------------
+   Use these classes inside Markdown/HTML figure blocks:
+     image-xs, image-sm, image-md, image-lg, image-full
+   ========================================================================== */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.markdown-body img {
+  display: block;
+  margin: 1rem 0;
+  border-radius: 3px;
+}
+
+.image-figure {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.image-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.image-xs img {
+  max-width: 180px;
+}
+
+.image-sm img {
+  max-width: 300px;
+}
+
+.image-md img {
+  max-width: 480px;
+}
+
+.image-lg img {
+  max-width: 680px;
+}
+
+.image-full img {
+  max-width: 100%;
+}
+
+.image-figure figcaption {
+  max-width: 680px;
+  margin: 0.5rem auto 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+
+/* ==========================================================================
+   9. Homepage layout
+   --------------------------------------------------------------------------
+   The profile photo floats to the top-right on desktop and stacks on phones.
+   ========================================================================== */
+
+.home-layout::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.profile-photo {
+  float: right;
+  width: 200px;
+  max-width: 38%;
+  margin: 0.2rem 0 1rem 1.5rem;
+  border-radius: 4px;
+}
+
+
+/* ==========================================================================
+   10. Blog tools: search and tags
+   --------------------------------------------------------------------------
+   Default blog tools. The blog page itself has a more minimal override below.
+   ========================================================================== */
+
+.blog-tools {
+  margin: 1.2rem 0 1.5rem;
+  padding: 1rem;
+  background: var(--soft-background);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+
+.search-label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.55rem 0.65rem;
+  color: var(--text);
+  background: var(--background);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font: inherit;
+  font-size: 1rem;
+}
+
+.tag-cloud,
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.tag-cloud {
+  margin-top: 0.8rem;
+}
+
+.tag,
+.tag-button {
+  display: inline-block;
+  padding: 0.08rem 0.45rem;
+  color: var(--text) !important;
+  background: #eee;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-family: var(--body-font);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  text-decoration: none;
+}
+
+.tag-button {
+  cursor: pointer;
+}
+
+.tag-button.active {
+  font-weight: bold;
+  background: #fff;
+  border-color: #999;
+}
+
+.tag-button span {
+  color: var(--muted);
+}
+
+
+/* ==========================================================================
+   11. Blog post list
+   ========================================================================== */
+
+.post-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.post-card {
+  margin: 0 0 1.25rem;
+  padding: 0 0 1.15rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.post-card-header {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: baseline;
+}
+
+.post-card time {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.post-card p {
+  margin-top: 0.45rem;
+  margin-bottom: 0;
+  color: #333;
+}
+
+
+/* ==========================================================================
+   12. Minimal blog index page
+   --------------------------------------------------------------------------
+   These rules apply only when the page has:
+     <body data-page="blog">
+   ========================================================================== */
+
+body[data-page="blog"] main {
+  max-width: 760px;
+}
+
+body[data-page="blog"] h1 {
+  margin-bottom: 1.1rem;
+}
+
+body[data-page="blog"] .blog-tools {
+  margin: 0 0 1.35rem;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+
+body[data-page="blog"] .search-label {
+  display: none;
+}
+
+body[data-page="blog"] .search-input {
+  width: 100%;
+  padding: 0.35rem 0;
+  color: var(--text);
+  background: var(--background);
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  outline: none;
+  font: inherit;
+  font-size: 1rem;
+}
+
+body[data-page="blog"] .search-input:focus {
+  border-bottom-color: #999;
+}
+
+body[data-page="blog"] .tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.55rem;
+  margin-top: 0.75rem;
+}
+
+body[data-page="blog"] .tag-button {
+  padding: 0;
+  color: var(--link) !important;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  font-family: var(--body-font);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+body[data-page="blog"] .tag-button::before {
+  content: "#";
+  color: var(--muted);
+}
+
+body[data-page="blog"] .tag-button:hover {
+  text-decoration: underline;
+}
+
+body[data-page="blog"] .tag-button.active {
+  color: var(--text) !important;
+  background: transparent;
+  border: 0;
+  font-weight: normal;
+  text-decoration: underline;
+}
+
+body[data-page="blog"] .tag-button span {
+  color: var(--muted);
+  font-size: 0.85em;
+}
+
+#result-count {
+  margin: 0 0 1.1rem;
+  font-size: 0.9rem;
+}
+
+.post-title {
+  margin: 0 0 0.18rem;
+  padding: 0;
+  border: 0;
+  font-size: 1.45rem;
+  font-weight: normal;
+  line-height: 1.25;
+}
+
+.post-meta-line {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.meta-separator {
+  margin: 0 0.35rem;
+  color: var(--muted);
+}
+
+.post-tags-inline {
+  display: inline;
+}
+
+.tag-inline {
+  margin: 0 0.25rem 0 0;
+  padding: 0;
+  color: var(--link);
+  background: transparent;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.tag-inline::before {
+  content: "#";
+  color: var(--muted);
+}
+
+.tag-inline:hover,
+.read-link:hover {
+  text-decoration: underline;
+}
+
+.read-link {
+  color: var(--link);
+  text-decoration: none;
+}
+
+
+/* ==========================================================================
+   13. Poems and pre-formatted literary text
+   --------------------------------------------------------------------------
+   Use this in Markdown:
+     <div class="poem"> ... </div>
+   ========================================================================== */
+
+.poem {
+  white-space: pre-line;
+  margin: 1.5rem 0;
+  line-height: 1.65;
+  font-style: normal;
+}
+
+.poem p {
+  margin: 0;
+}
+
+
+/* ==========================================================================
+   14. Embedded PDFs
+   --------------------------------------------------------------------------
+   Use this in Markdown:
+     <div class="pdf-embed">
+       <iframe src="/assets/pdfs/file.pdf" title="PDF title"></iframe>
+     </div>
+   ========================================================================== */
+
+.pdf-embed {
+  width: 100%;
+  margin: 1.5rem 0;
+  border: 1px solid var(--line);
+}
+
+.pdf-embed iframe {
+  display: block;
+  width: 100%;
+  height: 760px;
+  border: 0;
+}
+
+
+/* ==========================================================================
+   15. Mobile layout
+   ========================================================================== */
+
+@media (max-width: 700px) {
+  body {
+    font-size: 16px;
+  }
+
+  main,
+  footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  main {
+    margin-top: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 10px 16px 6px;
+  }
+
+  .site-nav,
+  .site-name {
+    font-size: 18px;
+  }
+
+  .profile-photo {
+    float: none;
+    display: block;
+    width: 150px;
+    max-width: 70%;
+    margin: 0 0 1rem;
+  }
+
+  .post-card-header {
+    display: block;
+  }
+
+  .post-card time {
+    display: block;
+  }
+
+  .post-title {
+    font-size: 1.28rem;
+  }
+
+  .post-meta-line {
+    font-size: 0.86rem;
+  }
+
+  .katex-display {
+    font-size: 0.95em;
+    padding-bottom: 0.2rem;
+  }
+
+  .pdf-embed iframe {
+    height: 520px;
+  }
+}
+
+
+/* ==========================================================================
+   Markdown headings
+   --------------------------------------------------------------------------
+   Controls headings generated from #, ##, ###, etc. in Markdown files.
+   ========================================================================== */
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  font-family: var(--heading-font);
+  font-weight: normal;
+  line-height: 1.25;
+  color: var(--text);
+  margin-top: 2.2rem;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--line);
+}
+
+/* Page / article title */
+.markdown-body h1 {
+  font-size: 2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--line);
+}
+
+/* Major sections */
+.markdown-body h2 {
+  font-size: 1.55rem;
+}
+
+/* Subsections */
+.markdown-body h3 {
+  font-size: 1.25rem;
+}
+
+/* Smaller nested headings */
+.markdown-body h4 {
+  font-size: 1.1rem;
+}
+
+.markdown-body h5 {
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.markdown-body h6 {
+  font-size: 0.95rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Avoid huge gap if a heading comes first */
+.markdown-body h1:first-child,
+.markdown-body h2:first-child,
+.markdown-body h3:first-child {
+  margin-top: 0;
+}
+
+
+
+.paper-card {
+  margin: 1.25rem 0;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--background);
+}
+
+.paper-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.7rem;
+}
+
+.paper-label {
+  font-size: 0.78rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.paper-year {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.paper-card h3 {
+  margin: 0 0 0.45rem;
+  padding: 0;
+  border: none;
+  font-size: 1.25rem;
+}
+
+.paper-authors,
+.paper-venue {
+  margin: 0.15rem 0;
+  color: var(--muted);
+}
+
+.paper-summary {
+  margin: 0.8rem 0 1rem;
+}
+
+.paper-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.paper-links a {
+  padding: 0.25rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.paper-links a:hover {
+  background: var(--line);
+}

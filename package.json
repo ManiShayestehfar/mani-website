@@ -1,0 +1,11 @@
+{
+  "name": "mani-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "npm run index-posts",
+    "index-posts": "node scripts/generate-posts-index.js",
+    "check": "node --check assets/site.js && node --check assets/blog.js && node --check scripts/generate-posts-index.js"
+  },
+  "devDependencies": {}
+}
