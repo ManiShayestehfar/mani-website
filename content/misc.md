@@ -14,6 +14,7 @@ title: Misc
 
 - Rock/Jazz Guitar
 - Hiking and Running
+- Old and probably outdated [blog](https://kafkaovsky.wordpress.com)
 
 
 <figure class="image-figure image-md">
