@@ -243,40 +243,43 @@ function publicationCard(paper) {
     .join('');
 
   return `
-    <div class="paper-card">
+    <article class="paper-card">
       <h3>${escapeHtml(paper.title || 'Untitled paper')}</h3>
 
-      ${paper.authors
-        ? `<p class="paper-authors">${escapeHtml(paper.authors)}</p>`
-        : ''
-      }
+      <div class="paper-meta">
+        ${paper.authors
+          ? `<span class="paper-authors">${escapeHtml(paper.authors)}</span>`
+          : ''
+        }
 
-      ${paper.date
-        ? `
-          <p class="paper-date">
-            <time datetime="${safeDate}">${escapeHtml(formatDate(paper.date))}</time>
-          </p>
-        `
-        : ''
-      }
+        ${paper.date
+          ? `
+            <time class="paper-date" datetime="${safeDate}">
+              ${escapeHtml(formatDate(paper.date))}
+            </time>
+          `
+          : ''
+        }
 
-      ${links
-        ? `<div class="paper-links">${links}</div>`
-        : ''
-      }
+        ${links
+          ? `<span class="paper-links">${links}</span>`
+          : ''
+        }
 
-      ${paper.summary
-        ? `
-          <details class="paper-summary-dropdown">
-            <summary>Summary</summary>
-            <div class="paper-summary">
-              ${renderMarkdown(paper.summary)}
-            </div>
-          </details>
-        `
-        : ''
-      }
-    </div>
+        ${paper.summary
+          ? `
+            <details class="paper-summary-dropdown">
+              <summary>Summary</summary>
+
+              <div class="paper-summary">
+                ${renderMarkdown(paper.summary)}
+              </div>
+            </details>
+          `
+          : ''
+        }
+      </div>
+    </article>
   `;
 }
 
