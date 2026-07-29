@@ -839,7 +839,7 @@ body[data-page="blog"] .tag-button span {
 
 
 .paper-card {
-  width: min(100%, 760px);
+  width: min(100%, 840px);
   margin: 0.6rem auto;
   padding: 0.7rem 0.9rem;
   border: 1px solid var(--line);
