@@ -23,4 +23,5 @@ Representation theory, Algebraic topology, Algebraic geometry, Functional Analys
 
 ## Tutoring
 
-- MATH1061, University of Sydney (2025-26)
+- MATH1061 (Calculus & Linear Algebra), University of Sydney (2025-2026)
+- MATH1062 (Multivariable Calculus), University of Sydney (2026)
