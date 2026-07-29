@@ -226,32 +226,56 @@ async function loadMarkdownPage() {
 }
 
 function publicationCard(paper) {
-  const safeStatus = escapeHtml(paper.status || 'paper');
   const safeDate = escapeHtml(paper.date || '');
-  const year = paper.date ? new Date(paper.date).getFullYear() : '';
+
   const links = [
-    paper.pdf ? `<a href="${escapeHtml(paper.pdf)}" target="_blank" rel="noopener">PDF</a>` : '',
-    paper.code ? `<a href="${escapeHtml(paper.code)}" target="_blank" rel="noopener">Code</a>` : '',
-    paper.doi ? `<a href="${escapeHtml(paper.doi)}" target="_blank" rel="noopener">DOI</a>` : ''
+    paper.pdf
+      ? `<a href="${escapeHtml(paper.pdf)}" target="_blank" rel="noopener">PDF</a>`
+      : '',
+    paper.code
+      ? `<a href="${escapeHtml(paper.code)}" target="_blank" rel="noopener">Code</a>`
+      : '',
+    paper.doi
+      ? `<a href="${escapeHtml(paper.doi)}" target="_blank" rel="noopener">DOI</a>`
+      : ''
   ]
     .filter(Boolean)
     .join('');
 
   return `
-    <div class="paper-card ${safeStatus}">
-      <div class="paper-top">
-        <span class="paper-label">${safeStatus}</span>
-        <span class="paper-year"><time datetime="${safeDate}">${Number.isNaN(year) ? '' : year}</time></span>
-      </div>
-
+    <div class="paper-card">
       <h3>${escapeHtml(paper.title || 'Untitled paper')}</h3>
 
-      ${paper.authors ? `<p class="paper-authors">${escapeHtml(paper.authors)}</p>` : ''}
-      ${paper.venue ? `<p class="paper-venue">${escapeHtml(paper.venue)}</p>` : ''}
+      ${paper.authors
+        ? `<p class="paper-authors">${escapeHtml(paper.authors)}</p>`
+        : ''
+      }
 
-      ${paper.summary ? `<div class="paper-summary">${renderMarkdown(paper.summary)}</div>` : ''}
+      ${paper.date
+        ? `
+          <p class="paper-date">
+            <time datetime="${safeDate}">${escapeHtml(formatDate(paper.date))}</time>
+          </p>
+        `
+        : ''
+      }
 
-      ${links ? `<div class="paper-links">${links}</div>` : ''}
+      ${links
+        ? `<div class="paper-links">${links}</div>`
+        : ''
+      }
+
+      ${paper.summary
+        ? `
+          <details class="paper-summary-dropdown">
+            <summary>Summary</summary>
+            <div class="paper-summary">
+              ${renderMarkdown(paper.summary)}
+            </div>
+          </details>
+        `
+        : ''
+      }
     </div>
   `;
 }

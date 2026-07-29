@@ -846,27 +846,6 @@ body[data-page="blog"] .tag-button span {
   background: var(--background);
 }
 
-.paper-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 0.7rem;
-}
-
-.paper-label {
-  font-size: 0.78rem;
-  padding: 0.2rem 0.55rem;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  color: var(--muted);
-}
-
-.paper-year {
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
 .paper-card h3 {
   margin: 0 0 0.45rem;
   padding: 0;
@@ -875,19 +854,20 @@ body[data-page="blog"] .tag-button span {
 }
 
 .paper-authors,
-.paper-venue {
+.paper-date {
   margin: 0.15rem 0;
   color: var(--muted);
 }
 
-.paper-summary {
-  margin: 0.8rem 0 1rem;
+.paper-date {
+  font-size: 0.9rem;
 }
 
 .paper-links {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin-top: 0.8rem;
 }
 
 .paper-links a {
@@ -899,4 +879,60 @@ body[data-page="blog"] .tag-button span {
 
 .paper-links a:hover {
   background: var(--line);
+}
+
+.paper-summary-dropdown {
+  margin-top: 1rem;
+  border-top: 1px solid var(--line);
+  padding-top: 0.8rem;
+}
+
+.paper-summary-dropdown summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  list-style: none;
+  user-select: none;
+}
+
+.paper-summary-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.paper-summary-dropdown summary::after {
+  content: "▾";
+  font-size: 0.85rem;
+  transition: transform 0.2s ease;
+}
+
+.paper-summary-dropdown[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.paper-summary-dropdown summary:hover {
+  background: var(--line);
+}
+
+.paper-summary-dropdown summary:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.paper-summary {
+  margin-top: 0.9rem;
+}
+
+.paper-summary > :first-child {
+  margin-top: 0;
+}
+
+.paper-summary > :last-child {
+  margin-bottom: 0;
 }
