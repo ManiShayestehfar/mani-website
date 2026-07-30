@@ -9,7 +9,6 @@ My name is Mani Shayestehfar. I am currently a Master of Mathematical Sciences s
 My master's thesis is on representation theory of equivariant neural networks.
 
 - [School of Mathematics Profile](https://www.maths.usyd.edu.au/ut/people?who=M_Shayestehfar&sms=y)
-- [LinkedIn](https://www.linkedin.com/in/manishayestehfar)
 
 ## Contact
 
