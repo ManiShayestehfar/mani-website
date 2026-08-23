@@ -16,9 +16,8 @@ If you would like to get in touch, collaborate, or simply talk maths, feel free 
 
 **Email:** name (dot) lastname 03 (at) gmail.com
 
-**Areas of interest:**
-Representation theory, Algebraic topology, Algebraic geometry, Functional Analysis, Differential geometry, Mathematical physics
-
+**Areas of interest (subset of):**
+Representation theory, Mathematical AI, Category Theory 
 
 ## Tutoring
 
