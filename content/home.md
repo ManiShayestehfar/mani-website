@@ -15,7 +15,7 @@ My master's thesis is on representation theory of equivariant neural networks.
 
 If you would like to get in touch, collaborate, or simply talk maths, feel free to reach out.
 
-**Email:** name . lastname @sydney.edu.au
+**Email:** name(dot)lastname(at)sydney.edu.au
 
 **Areas of interest (subset of):**
 Representation theory, Mathematical AI, Category Theory 
