@@ -13,7 +13,7 @@ const SITE = {
   mastodon: 'https://mathstodon.xyz/@ManiShayestehfar'
   },
 
-  lastUpdated: '31 July 2026'
+  lastUpdated: '1 September 2026'
 };
 
 function escapeHtml(value) {
