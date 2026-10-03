@@ -27,6 +27,12 @@
   <main class="home-layout">
     <img class="profile-photo" src="assets/images/profile.png" alt="This is Me!" />
     <article id="content" class="markdown-body math-container">Loading…</article>
+    <section class="equivariance-toy" aria-label="Interactive equivariance demonstration">
+      <iframe id="equivariance-frame" src="assets/toys/equivariance-dog.html"
+        title="Interactive equivariance toy: drag Lola and choose a transformation"
+        loading="lazy" width="640" height="360"></iframe>
+      <p class="equivariance-hint">Drag Lola to explore; choose a filter below the images.</p>
+    </section>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -35,5 +41,6 @@
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
   <script src="assets/site.js"></script>
+  <script src="assets/equivariance-embed.js" defer></script>
 </body>
 </html>

@@ -180,3 +180,11 @@ You can then enable GitHub Pages from the repository settings if desired.
 ## Notes
 
 This site intentionally stays simple: plain links, narrow text column, minimal CSS, Markdown content, and a small amount of JavaScript for rendering and search.
+
+## Homepage interactive toy
+
+The toy follows Tutoring on the homepage. Its self-contained document is
+`assets/toys/equivariance-dog.html`; `assets/equivariance-embed.js` handles
+iframe resizing and visibility. Spacing is controlled by `.equivariance-toy`
+in `assets/style.css`. It loads lazily, uses no external libraries or fonts,
+and pauses rendering when off screen or the browser tab is hidden.

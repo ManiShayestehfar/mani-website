@@ -1082,3 +1082,23 @@ body[data-page="blog"] .tag-button span {
     text-align: left;
   }
 }
+/* Homepage interactive toy: reserve space before its lazy-loaded document arrives. */
+.equivariance-toy {
+  clear: both;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 5rem) 0;
+}
+.equivariance-toy iframe {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 640 / 360;
+  border: 0;
+}
+.equivariance-hint {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  text-align: center;
+  font-size: .85rem;
+}

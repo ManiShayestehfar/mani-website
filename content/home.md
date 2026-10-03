@@ -17,8 +17,6 @@ Check out [this reading group](https://sites.google.com/view/lierepreadinggrp/ho
 
 ## Contact
 
-If you would like to get in touch, collaborate, or simply talk maths, feel free to reach out.
-
 **Email:** name(dot)lastname(at)sydney.edu.au
 
 **Areas of interest (subset of):**
