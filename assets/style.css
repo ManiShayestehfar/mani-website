@@ -1082,7 +1082,7 @@ body[data-page="blog"] .tag-button span {
     text-align: left;
   }
 }
-/* Homepage interactive toy: reserve space before its lazy-loaded document arrives. */
+/* Interactive toy subpage: reserve space before its lazy-loaded document arrives. */
 .equivariance-toy {
   clear: both;
   max-width: 800px;

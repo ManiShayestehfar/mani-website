@@ -23,3 +23,7 @@ title: Misc
     An adventurous hike atop of Mt. Murchison, Tasmania
   </figcaption>
 </figure>
+
+## Interactive toys
+
+- [Equivariance dog toy](equivariance.html) — drag Lola and explore different image transformations.

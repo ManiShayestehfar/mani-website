@@ -11,10 +11,14 @@ html,body{margin:0;background:transparent;overflow:hidden}
 .t{font-family:"STIX Two Text","Latin Modern Roman","Times New Roman",serif;font-size:6cqw;line-height:1;white-space:nowrap}
 .t i{font-style:italic}
 #f{cursor:pointer;user-select:none}
-.g{color:#3b3f9c;display:inline-flex;align-items:center;margin-right:.6cqw}
-.g .br{font-size:9cqw;font-weight:300;line-height:1;transform:scaleX(.7);margin:0 -.7cqw}
-.g .nums{display:flex;flex-direction:column;align-items:flex-end;font-size:3.1cqw;line-height:1.2;min-width:3.1ch;font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
-.g .dot{margin-left:.3cqw}
+/* The numeric vector labels the arrow; it is not an image operator. */
+.output{position:relative;flex:0 0 33cqw}
+.vector-label{position:absolute;display:flex;align-items:center;gap:2px;color:#3b3f9c;
+  font:clamp(10px,2.3cqw,18px)/1.1 "Times New Roman",serif;pointer-events:none;
+  padding:2px 3px;border-radius:3px;background:rgba(255,255,255,.82);
+  transform:translate(-50%,-50%);white-space:nowrap}
+.vector-label .br{font-size:2.3em;line-height:1;font-weight:300}
+.vector-label .nums{display:flex;flex-direction:column;align-items:center;font-variant-numeric:tabular-nums}
 svg.p{width:2.6cqw;height:45cqw;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 canvas{display:block;width:33cqw;height:44cqw;border-radius:.6cqw;touch-action:none;user-select:none}
 .fs{display:flex;justify-content:center;gap:2.4cqw;padding-bottom:1.2cqw}
@@ -33,8 +37,12 @@ canvas{display:block;width:33cqw;height:44cqw;border-radius:.6cqw;touch-action:n
     <canvas id="a" width="360" height="480" aria-label="Drag Lola"></canvas>
     <svg class="p" viewBox="0 0 24 100" preserveAspectRatio="none"><path d="M21 2 Q23 60 1 98" vector-effect="non-scaling-stroke"/></svg>
     <span class="t">=</span>
-    <span class="t g" aria-label="translation vector"><span class="br">(</span><span class="nums"><span id="vx">0</span><span id="vy">0</span></span><span class="br">)</span><span class="dot">·</span></span>
-    <canvas id="b" width="360" height="480" aria-label="Output of f"></canvas>
+    <div class="output">
+      <canvas id="b" width="360" height="480" aria-label="Output of f with a labelled translation arrow"></canvas>
+      <span class="vector-label" id="vector-label" aria-label="Translation vector in pixels, with positive y upwards">
+        <span class="br">(</span><span class="nums"><span id="vx">0</span><span id="vy">0</span></span><span class="br">)</span>
+      </span>
+    </div>
   </div>
   <div class="fs" role="group" aria-label="Choose f">
     <button data-f="0" aria-pressed="true">edges</button>
@@ -138,10 +146,40 @@ function computeF(){ compose(); readX(); F[fi](); }
 
 const VX = document.getElementById('vx'), VY = document.getElementById('vy');
 const fm = v => (v < 0 ? '\u2212' : '') + Math.abs(v);
-function gvec(){ // g on the right: its translation vector, in pixels, up = positive
-  const a = fm(Math.round(pos.x - HOME.x)), b = fm(Math.round(HOME.y - pos.y));
+const vectorLabel = document.getElementById('vector-label');
+function gvec(){
+  const vx = pos.x - HOME.x, vy = pos.y - HOME.y;
+  const a = fm(Math.round(vx)), b = fm(Math.round(-vy));
   if (VX.textContent !== a) VX.textContent = a;
-  if (VY.textContent !== b) VY.textContent = b; }
+  if (VY.textContent !== b) VY.textContent = b;
+  // Measure in canvas coordinates so the label stays inside the image on phones.
+  const scale = B.getBoundingClientRect().width / W;
+  if (!scale) return;
+  const hw = vectorLabel.offsetWidth / scale / 2, hh = vectorLabel.offsetHeight / scale / 2;
+  const len = Math.hypot(vx, vy), nx = len >= 8 ? -vy/len : 0, ny = len >= 8 ? vx/len : -1;
+  const mx = HOME.x + DW/2 + .4*vx, my = HOME.y + DH/2 + .4*vy;
+  const offset = Math.abs(nx)*hw + Math.abs(ny)*hh + 12;
+  const clamp = (v, low, high) => Math.max(low, Math.min(high, v));
+  const overlap = (x, y, left, top, right, bottom) =>
+    Math.max(0, Math.min(x+hw, right) - Math.max(x-hw, left)) *
+    Math.max(0, Math.min(y+hh, bottom) - Math.max(y-hh, top));
+  // Prefer the side of the shaft with less overlap with Lola and the arrowhead.
+  const candidates = [1, -1].map(side => {
+    const x = clamp(mx + side*nx*offset, hw+6, W-hw-6);
+    const y = clamp(my + side*ny*offset, hh+6, H-hh-6);
+    const score = overlap(x,y,pos.x,pos.y,pos.x+DW,pos.y+DH) +
+      overlap(x,y,HOME.x+DW/2+vx-18,HOME.y+DH/2+vy-18,HOME.x+DW/2+vx+18,HOME.y+DH/2+vy+18);
+    return { x, y, score };
+  });
+  // With no visible arrow, keep the zero vector above the dog.
+  const best = len < 8 ? { x: clamp(mx,hw+6,W-hw-6), y: clamp(HOME.y-hh-10,hh+6,H-hh-6) } :
+    candidates.reduce((a,b) => a.score <= b.score ? a : b);
+  vectorLabel.style.left = `${best.x/W*100}%`;
+  vectorLabel.style.top = `${best.y/H*100}%`;
+}
+if ('ResizeObserver' in window) new ResizeObserver(gvec).observe(B);
+else window.addEventListener('resize', gvec);
+
 function arrow(ctx){
   const x0 = HOME.x + DW/2, y0 = HOME.y + DH/2, vx = pos.x - HOME.x, vy = pos.y - HOME.y, len = Math.hypot(vx, vy);
   if (len < 8) return;
