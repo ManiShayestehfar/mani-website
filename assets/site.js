@@ -247,8 +247,11 @@ function publicationCard(paper) {
     paper.doi
       ? `<a href="${escapeHtml(paper.doi)}" target="_blank" rel="noopener">DOI</a>`
       : '',
-    paper.arxiv 
-    ? `<a href="${escapeHtml(paper.arxiv)}" target="_blank" rel="noopener">arXiv</a>` 
+    paper.arxiv
+    ? `<a href="${escapeHtml(paper.arxiv)}" target="_blank" rel="noopener">arXiv</a>`
+    : '',
+    paper.slides
+    ? `<a href="${escapeHtml(paper.slides)}" target="_blank" rel="noopener">Slides</a>`
     : ''
   ]
     .filter(Boolean)
