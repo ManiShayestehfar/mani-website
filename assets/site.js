@@ -253,8 +253,8 @@ function publicationCard(paper) {
     paper.slides
     ? `<a href="${escapeHtml(paper.slides)}" target="_blank" rel="noopener">Slides</a>`
     : '',
-    paper.slides
-    ? `<a href="${escapeHtml(paper.video)}" target="_blank" rel="noopener">Slides</a>`
+    paper.video
+    ? `<a href="${escapeHtml(paper.video)}" target="_blank" rel="noopener">Video</a>`
     : ''
   ]
     .filter(Boolean)
