@@ -8,7 +8,7 @@ I am currently a Master of Mathematical Sciences student in pure mathematics at 
 
 I completed my Bachelor's degree in Mathematics and Physics at the University of Sydney.
 
-My master's thesis is on representation theory of equivariant neural networks. Here is the [preprint](https://arxiv.org/abs/2609.25776v1).
+My master's thesis is on representation theory of equivariant neural networks. Here is the [thesis](../assets/papers/mmathsci_thesis.pdf).
 
 
 Check out [this reading group](https://sites.google.com/view/lierepreadinggrp/home?authuser=0) on representation theory of Lie algebras that I am planning. Feel free to join!
