@@ -94,13 +94,16 @@ footer {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  gap: 2rem;
   border-bottom: 1px solid #aaa;
 }
 
 .site-nav {
+  flex: 1;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
+  justify-content: space-between;
   gap: 0;
   font-family: var(--heading-font);
   font-size: 18px;
@@ -742,6 +745,11 @@ body[data-page="blog"] .tag-button span {
   .site-nav,
   .site-name {
     font-size: 18px;
+  }
+
+  .site-nav {
+    flex: initial;
+    justify-content: flex-start;
   }
 
   .profile-photo {
