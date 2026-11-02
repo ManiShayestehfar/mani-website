@@ -4,10 +4,10 @@ status: published
 date: 2026-11-02
 authors: Mani Shayestehfar
 venue: Proceedings of Machine Learning
+arxiv: https://arxiv.org/abs/2610.41059
 code: https://github.com/ManiShayestehfar/NeurReps-Codebase-Addendum
 video: https://youtu.be/Q-Z7sfrXh2I
 poster: ../assets/misc/neurreps26_poster.pdf
-arxiv: https://arxiv.org/abs/2610.41059
 ---
 
 Equivariant linear maps cannot mix non-isomorphic irreducible representations, whereas nonlinear activations can. We develop a degree-resolved version of this nonlinear interaction picture and use the resulting block inventory to construct Specht Triple, a residual on unordered graph triples. On a synthetic structural benchmark with a frozen GIN backbone, Specht Triple reduces aggregate standardised test MSE by 11.05% relative to a parameter-matched Projector Control using the same irreducible projectors and complete linear equivariant space. The results support irreducible decomposition as an inductive bias for nonlinear higher-order equivariant processing.
