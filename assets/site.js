@@ -10,10 +10,12 @@ const SITE = {
   linkedin: 'https://www.linkedin.com/in/manishayestehfar',
   github: 'https://github.com/ManiShayestehfar',
   x: 'https://x.com/manishayes81079',
-  mastodon: 'https://mathstodon.xyz/@ManiShayestehfar'
+  mastodon: 'https://mathstodon.xyz/@ManiShayestehfar',
+  googleScholar: 'https://scholar.google.com.au/citations?user=Tn3G36wAAAAJ&hl=en',
+  orcid: 'https://orcid.org/0009-0002-7898-2879'
   },
 
-  lastUpdated: '1 September 2026'
+  lastUpdated: '2 November 2026'
 };
 
 function escapeHtml(value) {
@@ -407,6 +409,36 @@ function addSiteFooter() {
           fill="currentColor"
           d="M18.24 2H21.9l-7.99 9.13L23.3 22h-7.35l-5.76-7.53L3.6 22H-.06l8.53-9.75L-.54 2h7.54l5.2 6.87L18.24 2Zm-1.28 18.08h2.03L5.9 3.82H3.72l13.24 16.26Z"
         />
+      </svg>
+    </a>
+
+    <span class="footer-dot" aria-hidden="true">•</span>
+
+    <a
+      class="footer-social-link"
+      href="${escapeHtml(SITE.socialLinks.googleScholar)}"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Google Scholar"
+      title="Google Scholar"
+    >
+      <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3Zm-6 9.27V17c0 2.21 2.69 4 6 4s6-1.79 6-4v-4.73l-6 3.27-6-3.27Z" />
+      </svg>
+    </a>
+
+    <span class="footer-dot" aria-hidden="true">•</span>
+
+    <a
+      class="footer-social-link"
+      href="${escapeHtml(SITE.socialLinks.orcid)}"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="ORCID"
+      title="ORCID"
+    >
+      <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20ZM7.3 6.25a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Zm.98 11.5H6.3V9.8h1.98v7.95Zm2.05-7.95h3.18c2.53 0 4.37 1.57 4.37 3.97s-1.84 3.98-4.37 3.98h-3.18V9.8Zm2 1.7v4.55h1.1c1.48 0 2.43-.86 2.43-2.28s-.95-2.27-2.43-2.27h-1.1Z" />
       </svg>
     </a>
 
